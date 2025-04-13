@@ -6,35 +6,15 @@ import requests
 
 app = Flask(__name__)
 
-# === Google Drive Large File Handler ===
-def download_from_gdrive(file_id, destination):
-    session = requests.Session()
-    base_url = "https://drive.google.com/uc?export=download"
-    response = session.get(base_url, params={"id": file_id}, stream=True)
-
-    def get_confirm_token(response):
-        for key, value in response.cookies.items():
-            if key.startswith("download_warning"):
-                return value
-        return None
-
-    token = get_confirm_token(response)
-    if token:
-        params = {"id": file_id, "confirm": token}
-        response = session.get(base_url, params=params, stream=True)
-
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(32768):
-            if chunk:
-                f.write(chunk)
-
-# === Step 1: Download model if not present ===
+# === Step 1: Download model from Dropbox if not present ===
+model_url = "https://www.dropbox.com/scl/fi/iakt7i51zl42yqfq5tehx/final_random_forest_model.pkl?rlkey=fybb3jozjw2mk2ccbcqnwmj9w&st=widp1j0e&dl=1"
 model_path = "final_random_forest_model.pkl"
-file_id = "1etfH9HbBSGLb_cvxWgAsrZFP_MFsd480"
 
 if not os.path.exists(model_path):
-    print("Downloading model from Google Drive...")
-    download_from_gdrive(file_id, model_path)
+    print("Downloading model from Dropbox...")
+    response = requests.get(model_url)
+    with open(model_path, "wb") as f:
+        f.write(response.content)
     print("Model downloaded successfully!")
 
 # === Step 2: Load model ===
