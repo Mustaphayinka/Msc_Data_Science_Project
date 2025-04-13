@@ -3,26 +3,27 @@ import pickle
 import numpy as np
 import os
 import requests
+import gzip
 
 app = Flask(__name__)
 
-# === Step 1: Download model from Dropbox if not present ===
-model_url = "https://www.dropbox.com/scl/fi/iakt7i51zl42yqfq5tehx/final_random_forest_model.pkl?rlkey=fybb3jozjw2mk2ccbcqnwmj9w&st=widp1j0e&dl=1"
-model_path = "final_random_forest_model.pkl"
+# === Step 1: Download compressed model from Dropbox if not present ===
+model_url = "https://www.dropbox.com/scl/fi/xupzjzfx5q6fghlx70ncf/final_rf_model_compressed.pkl.gz?rlkey=fenxcl97wu8njtq34tavybziq&st=s3f59r64&dl=1"
+model_path = "final_rf_model_compressed.pkl.gz"
 
 if not os.path.exists(model_path):
-    print("Downloading model from Dropbox...")
+    print("Downloading compressed model from Dropbox...")
     response = requests.get(model_url)
     with open(model_path, "wb") as f:
         f.write(response.content)
     print("Model downloaded successfully!")
 
-# === Step 2: Load model ===
-with open(model_path, "rb") as f:
+# === Step 2: Load compressed model ===
+with gzip.open(model_path, "rb") as f:
     try:
         rf_model = pickle.load(f)
     except Exception as e:
-        raise RuntimeError(f"Failed to load the model. Make sure the downloaded file is a valid .pkl file.\n{e}")
+        raise RuntimeError(f"Failed to load the model. Make sure the downloaded file is a valid compressed .pkl file.\n{e}")
 
 # === Step 3: Define features ===
 FEATURES = ['OCCP', 'AGEP', 'POBP', 'WKHP', 'SCHL']
