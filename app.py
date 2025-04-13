@@ -1,13 +1,28 @@
 from flask import Flask, render_template, request
-import joblib
+import pickle
 import numpy as np
+import os
+import requests
 
 app = Flask(__name__)
 
-# Load the final Random Forest model
-rf_model = joblib.load("final_random_forest_model.pkl")
+# Google Drive direct download link (from your file)
+model_url = "https://drive.google.com/uc?export=download&id=1etfH9HbBSGLb_cvxWgAsrZFP_MFsd480"
+model_path = "final_random_forest_model.pkl"
 
-# Expected input features based on RF
+# Step 1: Download model from Google Drive if not already present
+if not os.path.exists(model_path):
+    print("Downloading model from Google Drive...")
+    r = requests.get(model_url)
+    with open(model_path, "wb") as f:
+        f.write(r.content)
+    print("Model downloaded successfully!")
+
+# Step 2: Load model with pickle
+with open(model_path, "rb") as f:
+    rf_model = pickle.load(f)
+
+# Step 3: Define expected input features
 FEATURES = ['OCCP', 'AGEP', 'POBP', 'WKHP', 'SCHL']
 
 @app.route('/')
@@ -20,7 +35,7 @@ def predict():
         data = [float(request.form[feature]) for feature in FEATURES]
         input_array = np.array(data).reshape(1, -1)
 
-        # Make prediction using RF model
+        # Make prediction using Random Forest model
         pred_rf = rf_model.predict(input_array)[0]
 
         def interpret(pred):
