@@ -13,14 +13,17 @@ model_path = "final_random_forest_model.pkl"
 # Step 1: Download model from Google Drive if not already present
 if not os.path.exists(model_path):
     print("Downloading model from Google Drive...")
-    r = requests.get(model_url)
+    response = requests.get(model_url)
     with open(model_path, "wb") as f:
-        f.write(r.content)
+        f.write(response.content)
     print("Model downloaded successfully!")
 
 # Step 2: Load model with pickle
 with open(model_path, "rb") as f:
-    rf_model = pickle.load(f)
+    try:
+        rf_model = pickle.load(f)
+    except Exception as e:
+        raise RuntimeError(f"Failed to load the model. Make sure the downloaded file is a valid .pkl file.\n{e}")
 
 # Step 3: Define expected input features
 FEATURES = ['OCCP', 'AGEP', 'POBP', 'WKHP', 'SCHL']
