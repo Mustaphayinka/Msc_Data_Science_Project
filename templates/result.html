@@ -1,69 +1,21 @@
-<!DOCTYPE html>
+<!-- templates/result.html -->
+{% extends 'base.html' %}
+{% block title %}Result - SES App{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prediction Result</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-            padding: 50px;
-            text-align: center;
-        }
-        .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-        }
-        .result {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        .inputs {
-            text-align: left;
-            margin-top: 20px;
-        }
-        .inputs p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        .back {
-            margin-top: 30px;
-        }
-        .back a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-        .back a:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Prediction Outcome</h1>
-        <div class="result"><strong>Result:</strong> {{ result_rf }}</div>
+{% block content %}
+<h1 class="text-center mb-4">Prediction Outcome</h1>
+<div class="alert alert-primary fs-5 text-center">
+  <strong>Result:</strong> {{ result_rf }}
+</div>
 
-        <div class="inputs">
-            <h3>Input Values:</h3>
-            {% for key, value in input_values.items() %}
-                <p><strong>{{ key }}:</strong> {{ value }}</p>
-            {% endfor %}
-        </div>
+<div class="card p-4 mx-auto" style="max-width: 500px;">
+  <h4 class="mb-3">Input Values</h4>
+  {% for key, value in input_values.items() %}
+    <p><strong>{{ key }}:</strong> {{ value }}</p>
+  {% endfor %}
+</div>
 
-        <div class="back">
-            <a href="{{ url_for('index') }}">Make Another Prediction</a>
-        </div>
-    </div>
-</body>
-</html>
+<div class="text-center mt-4">
+  <a class="btn btn-primary" href="{{ url_for('index') }}">🔄 Make Another Prediction</a>
+</div>
+{% endblock %}
