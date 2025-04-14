@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 import pickle
+import gzip
 import numpy as np
 import os
 import requests
-import gzip
 
 app = Flask(__name__)
 
@@ -18,14 +18,7 @@ if not os.path.exists(model_path):
         f.write(response.content)
     print("Model downloaded successfully!")
 
-# === Step 2: Load compressed model ===
-with gzip.open(model_path, "rb") as f:
-    try:
-        rf_model = pickle.load(f)
-    except Exception as e:
-        raise RuntimeError(f"Failed to load the model. Make sure the downloaded file is a valid compressed .pkl file.\n{e}")
-
-# === Step 3: Define features ===
+# === Step 2: Define features ===
 FEATURES = ['OCCP', 'AGEP', 'POBP', 'WKHP', 'SCHL']
 
 @app.route('/')
@@ -35,10 +28,13 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
+        # Lazy-load model only when a prediction is needed
+        with gzip.open(model_path, "rb") as f:
+            rf_model = pickle.load(f)
+
         data = [float(request.form[feature]) for feature in FEATURES]
         input_array = np.array(data).reshape(1, -1)
 
-        # Make prediction using Random Forest model
         pred_rf = rf_model.predict(input_array)[0]
 
         def interpret(pred):
