@@ -7,6 +7,20 @@
         <h2 class="mb-4 text-center">Socioeconomic Status Prediction</h2>
         <form method="POST" action="/predict" class="card p-4">
             <div class="row mb-3">
+                <div class="col-md-6">
+                  <label for="SEX" class="form-label">Sex</label>
+                  <select name="SEX" class="form-select" required>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="AGEP" class="form-label">Age (AGEP)</label>
+                    <input type="number" name="AGEP" class="form-control" required>
+                </div>
+            </div>
+            <div class="row mb-3">
                 <div class="col">
                     <label for="OCCP" class="form-label">Occupation Code (OCCP)</label>
                     <select name="OCCP" class="form-select" required>
@@ -539,250 +553,17 @@
                         <option value="9800">9800 - Military Officer Special And Tactical Operations Leaders</option>
                         <option value="9810">9810 - First-Line Enlisted Military Supervisors</option>
                         <option value="9825">9825 - Military Enlisted Tactical Operations And Air/Weapons Specialists And Crew Members</option>
-                        <option value="9830">9830 - Military, Rank Not Specified</option>
-                                            
+                        <option value="9830">9830 - Military, Rank Not Specified</option>                                        
                     </select>
                 </div>
                 
-                <div class="col">
-                    <label for="AGEP" class="form-label">Age (AGEP)</label>
-                    <input type="number" class="form-control" name="AGEP" required>
-                </div>
             </div>
 
+            
             <div class="row mb-3">
-                <div class="col">
-                    <label for="POBP" class="form-label">Place of Birth (POBP)</label>
-                    <select name="POBP" class="form-select" required>
-                    <option value="">Select Place of Birth</option>
-                    <option value="1">1 - Alabama/AL</option>
-                    <option value="2">2 - Alaska/AK</option>
-                    <option value="4">4 - Arizona/AZ</option>
-                    <option value="5">5 - Arkansas/AR</option>
-                    <option value="6">6 - California/CA</option>
-                    <option value="8">8 - Colorado/CO</option>
-                    <option value="9">9 - Connecticut/CT</option>
-                    <option value="10">10 - Delaware/DE</option>
-                    <option value="11">11 - District of Columbia/DC</option>
-                    <option value="12">12 - Florida/FL</option>
-                    <option value="13">13 - Georgia/GA</option>
-                    <option value="15">15 - Hawaii/HI</option>
-                    <option value="16">16 - Idaho/ID</option>
-                    <option value="17">17 - Illinois/IL</option>
-                    <option value="18">18 - Indiana/IN</option>
-                    <option value="19">19 - Iowa/IA</option>
-                    <option value="20">20 - Kansas/KS</option>
-                    <option value="21">21 - Kentucky/KY</option>
-                    <option value="22">22 - Louisiana/LA</option>
-                    <option value="23">23 - Maine/ME</option>
-                    <option value="24">24 - Maryland/MD</option>
-                    <option value="25">25 - Massachusetts/MA</option>
-                    <option value="26">26 - Michigan/MI</option>
-                    <option value="27">27 - Minnesota/MN</option>
-                    <option value="28">28 - Mississippi/MS</option>
-                    <option value="29">29 - Missouri/MO</option>
-                    <option value="30">30 - Montana/MT</option>
-                    <option value="31">31 - Nebraska/NE</option>
-                    <option value="32">32 - Nevada/NV</option>
-                    <option value="33">33 - New Hampshire/NH</option>
-                    <option value="34">34 - New Jersey/NJ</option>
-                    <option value="35">35 - New Mexico/NM</option>
-                    <option value="36">36 - New York/NY</option>
-                    <option value="37">37 - North Carolina/NC</option>
-                    <option value="38">38 - North Dakota/ND</option>
-                    <option value="39">39 - Ohio/OH</option>
-                    <option value="40">40 - Oklahoma/OK</option>
-                    <option value="41">41 - Oregon/OR</option>
-                    <option value="42">42 - Pennsylvania/PA</option>
-                    <option value="44">44 - Rhode Island/RI</option>
-                    <option value="45">45 - South Carolina/SC</option>
-                    <option value="46">46 - South Dakota/SD</option>
-                    <option value="47">47 - Tennessee/TN</option>
-                    <option value="48">48 - Texas/TX</option>
-                    <option value="49">49 - Utah/UT</option>
-                    <option value="50">50 - Vermont/VT</option>
-                    <option value="51">51 - Virginia/VA</option>
-                    <option value="53">53 - Washington/WA</option>
-                    <option value="54">54 - West Virginia/WV</option>
-                    <option value="55">55 - Wisconsin/WI</option>
-                    <option value="56">56 - Wyoming/WY</option>
-                    <option value="60">60 - American Samoa</option>
-                    <option value="66">66 - Guam</option>
-                    <option value="69">69 - Commonwealth of the Northern Mariana Islands</option>
-                    <option value="72">72 - Puerto Rico</option>
-                    <option value="78">78 - US Virgin Islands</option>
-                    <option value="100">100 - Albania</option>
-                    <option value="102">102 - Austria</option>
-                    <option value="103">103 - Belgium</option>
-                    <option value="104">104 - Bulgaria</option>
-                    <option value="105">105 - Czechoslovakia</option>
-                    <option value="106">106 - Denmark</option>
-                    <option value="108">108 - Finland</option>
-                    <option value="109">109 - France</option>
-                    <option value="110">110 - Germany</option>
-                    <option value="116">116 - Greece</option>
-                    <option value="117">117 - Hungary</option>
-                    <option value="118">118 - Iceland</option>
-                    <option value="119">119 - Ireland</option>
-                    <option value="120">120 - Italy</option>
-                    <option value="126">126 - Netherlands</option>
-                    <option value="127">127 - Norway</option>
-                    <option value="128">128 - Poland</option>
-                    <option value="129">129 - Portugal</option>
-                    <option value="130">130 - Azores Islands</option>
-                    <option value="132">132 - Romania</option>
-                    <option value="134">134 - Spain</option>
-                    <option value="136">136 - Sweden</option>
-                    <option value="137">137 - Switzerland</option>
-                    <option value="138">138 - United Kingdom, Not Specified</option>
-                    <option value="139">139 - England</option>
-                    <option value="140">140 - Scotland</option>
-                    <option value="142">142 - Northern Ireland</option>
-                    <option value="147">147 - Yugoslavia</option>
-                    <option value="148">148 - Czech Republic</option>
-                    <option value="149">149 - Slovakia</option>
-                    <option value="150">150 - Bosnia and Herzegovina</option>
-                    <option value="151">151 - Croatia</option>
-                    <option value="152">152 - Macedonia</option>
-                    <option value="154">154 - Serbia</option>
-                    <option value="156">156 - Latvia</option>
-                    <option value="157">157 - Lithuania</option>
-                    <option value="158">158 - Armenia</option>
-                    <option value="159">159 - Azerbaijan</option>
-                    <option value="160">160 - Belarus</option>
-                    <option value="161">161 - Georgia</option>
-                    <option value="162">162 - Moldova</option>
-                    <option value="163">163 - Russia</option>
-                    <option value="164">164 - Ukraine</option>
-                    <option value="165">165 - USSR</option>
-                    <option value="166">166 - Europe</option>
-                    <option value="167">167 - Kosovo</option>
-                    <option value="168">168 - Montenegro</option>
-                    <option value="169">169 - Other Europe, Not Specified</option>
-                    <option value="200">200 - Afghanistan</option>
-                    <option value="202">202 - Bangladesh</option>
-                    <option value="203">203 - Bhutan</option>
-                    <option value="205">205 - Myanmar</option>
-                    <option value="206">206 - Cambodia</option>
-                    <option value="207">207 - China</option>
-                    <option value="209">209 - Hong Kong</option>
-                    <option value="210">210 - India</option>
-                    <option value="211">211 - Indonesia</option>
-                    <option value="212">212 - Iran</option>
-                    <option value="213">213 - Iraq</option>
-                    <option value="214">214 - Israel</option>
-                    <option value="215">215 - Japan</option>
-                    <option value="216">216 - Jordan</option>
-                    <option value="217">217 - Korea</option>
-                    <option value="218">218 - Kazakhstan</option>
-                    <option value="219">219 - Kyrgyzstan</option>
-                    <option value="222">222 - Kuwait</option>
-                    <option value="223">223 - Laos</option>
-                    <option value="224">224 - Lebanon</option>
-                    <option value="226">226 - Malaysia</option>
-                    <option value="228">228 - Mongolia</option>
-                    <option value="229">229 - Nepal</option>
-                    <option value="231">231 - Pakistan</option>
-                    <option value="233">233 - Philippines</option>
-                    <option value="235">235 - Saudi Arabia</option>
-                    <option value="236">236 - Singapore</option>
-                    <option value="238">238 - Sri Lanka</option>
-                    <option value="239">239 - Syria</option>
-                    <option value="240">240 - Taiwan</option>
-                    <option value="242">242 - Thailand</option>
-                    <option value="243">243 - Turkey</option>
-                    <option value="245">245 - United Arab Emirates</option>
-                    <option value="246">246 - Uzbekistan</option>
-                    <option value="247">247 - Vietnam</option>
-                    <option value="248">248 - Yemen</option>
-                    <option value="249">249 - Asia</option>
-                    <option value="253">253 - South Central Asia, Not Specified</option>
-                    <option value="254">254 - Other Asia, Not Specified</option>
-                    <option value="300">300 - Bermuda</option>
-                    <option value="301">301 - Canada</option>
-                    <option value="303">303 - Mexico</option>
-                    <option value="310">310 - Belize</option>
-                    <option value="311">311 - Costa Rica</option>
-                    <option value="312">312 - El Salvador</option>
-                    <option value="313">313 - Guatemala</option>
-                    <option value="314">314 - Honduras</option>
-                    <option value="315">315 - Nicaragua</option>
-                    <option value="316">316 - Panama</option>
-                    <option value="321">321 - Antigua and Barbuda</option>
-                    <option value="323">323 - Bahamas</option>
-                    <option value="324">324 - Barbados</option>
-                    <option value="327">327 - Cuba</option>
-                    <option value="328">328 - Dominica</option>
-                    <option value="329">329 - Dominican Republic</option>
-                    <option value="330">330 - Grenada</option>
-                    <option value="332">332 - Haiti</option>
-                    <option value="333">333 - Jamaica</option>
-                    <option value="338">338 - St. Kitts-Nevis</option>
-                    <option value="339">339 - St. Lucia</option>
-                    <option value="340">340 - St. Vincent and the Grenadines</option>
-                    <option value="341">341 - Trinidad and Tobago</option>
-                    <option value="343">343 - West Indies</option>
-                    <option value="344">344 - Caribbean, Not Specified</option>
-                    <option value="360">360 - Argentina</option>
-                    <option value="361">361 - Bolivia</option>
-                    <option value="362">362 - Brazil</option>
-                    <option value="363">363 - Chile</option>
-                    <option value="364">364 - Colombia</option>
-                    <option value="365">365 - Ecuador</option>
-                    <option value="368">368 - Guyana</option>
-                    <option value="369">369 - Paraguay</option>
-                    <option value="370">370 - Peru</option>
-                    <option value="372">372 - Uruguay</option>
-                    <option value="373">373 - Venezuela</option>
-                    <option value="374">374 - South America</option>
-                    <option value="399">399 - Americas, Not Specified</option>
-                    <option value="400">400 - Algeria</option>
-                    <option value="407">407 - Cameroon</option>
-                    <option value="408">408 - Cabo Verde</option>
-                    <option value="412">412 - Congo</option>
-                    <option value="414">414 - Egypt</option>
-                    <option value="416">416 - Ethiopia</option>
-                    <option value="417">417 - Eritrea</option>
-                    <option value="420">420 - Gambia</option>
-                    <option value="421">421 - Ghana</option>
-                    <option value="423">423 - Guinea</option>
-                    <option value="425">425 - Ivory Coast</option>
-                    <option value="427">427 - Kenya</option>
-                    <option value="429">429 - Liberia</option>
-                    <option value="430">430 - Libya</option>
-                    <option value="436">436 - Morocco</option>
-                    <option value="440">440 - Nigeria</option>
-                    <option value="442">442 - Rwanda</option>
-                    <option value="444">444 - Senegal</option>
-                    <option value="447">447 - Sierra Leone</option>
-                    <option value="448">448 - Somalia</option>
-                    <option value="449">449 - South Africa</option>
-                    <option value="451">451 - Sudan</option>
-                    <option value="453">453 - Tanzania</option>
-                    <option value="454">454 - Togo</option>
-                    <option value="457">457 - Uganda</option>
-                    <option value="459">459 - Democratic Republic of Congo (Zaire)</option>
-                    <option value="460">460 - Zambia</option>
-                    <option value="461">461 - Zimbabwe</option>
-                    <option value="462">462 - Africa</option>
-                    <option value="463">463 - South Sudan</option>
-                    <option value="464">464 - Northern Africa, Not Specified</option>
-                    <option value="467">467 - Western Africa, Not Specified</option>
-                    <option value="468">468 - Other Africa, Not Specified</option>
-                    <option value="469">469 - Eastern Africa, Not Specified</option>
-                    <option value="501">501 - Australia</option>
-                    <option value="508">508 - Fiji</option>
-                    <option value="511">511 - Marshall Islands</option>
-                    <option value="512">512 - Micronesia</option>
-                    <option value="515">515 - New Zealand</option>
-                    <option value="523">523 - Tonga</option>
-                    <option value="527">527 - Samoa</option>
-                    <option value="554">554 - Other US Island Areas, Oceania, Not Specified, or at Sea</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="WKHP" class="form-label">Work Hours Per Week (WKHP)</label>
-                    <input type="number" class="form-control" name="WKHP" required>
+                <div class="col-md-6">
+                  <label for="WKHP" class="form-label">Weekly Working Hours (WKHP)</label>
+                  <input type="number" name="WKHP" class="form-control" required>
                 </div>
             </div>
 
