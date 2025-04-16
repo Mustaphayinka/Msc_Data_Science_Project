@@ -40,7 +40,12 @@ def predict():
         pred = gb_model.predict(input_array)[0]
 
         def interpret(pred):
-            return "Above 50K" if pred == 1 else "50K or Below"
+            return (
+                "The model predicts the individual earns above $50,000 per year."
+                if pred == 1
+                else "The model predicts the individual earns $50,000 or less per year."
+            )
+
 
         return render_template(
             'result.html',
