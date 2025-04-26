@@ -3,6 +3,7 @@
 **Socioeconomic Status (SES) Prediction Web Application**
 
 **Project Overview** 
+
 The project implements an end-to-end machine learning application capable of predicting an individual’s socioeconomic status (SES) based on demographic and employment attributes. It classifies whether the individual earns above or below $50,000 per annum with the aid of different machine learning models. The model, which was ultimately deployed, is Gradient Boosting and was chosen due to its high accuracy and AUC-ROC value that has been realized here of 80% and 0.87 respectively when tested on the sample data used in this project ensuring strong predictive performance in the real world.
 
 **Project Structure**
