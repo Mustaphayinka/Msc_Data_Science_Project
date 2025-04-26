@@ -2,18 +2,15 @@
 
 **Socioeconomic Status (SES) Prediction Web Application**
 
-**Project Overview**
-This project develops an end-to-end machine learning application that predicts an individual’s socioeconomic status (SES) using demographic and employment attributes. The system classifies whether an individual earns above or below $50,000 annually using machine learning models.
-
-The final deployed model is Gradient Boosting, chosen for its high accuracy (80%) and AUC-ROC (0.87), ensuring strong real-world predictive performance.
-
+**Project Overview** 
+The project implements an end-to-end machine learning application capable of predicting an individual’s socioeconomic status (SES) based on demographic and employment attributes. It classifies whether the individual earns above or below $50,000 per annum with the aid of different machine learning models. The model, which was ultimately deployed, is Gradient Boosting and was chosen due to its high accuracy and AUC-ROC value that has been realized here of 80% and 0.87 respectively when tested on the sample data used in this project ensuring strong predictive performance in the real world.
 
 **Project Structure**
-app.py — Flask application code.
+app.py — Code for Flask application final_gradient_boosting_model.pkl.gz — Compressed trained model (saved in main project folder).
 
 final_gradient_boosting_model.pkl.gz — Compressed trained model (saved in the main project folder).
 
-index.html and result.html — HTML templates for the web interface (inside /templates/ folder).
+index.html, base.html and result.html — HTML templates for the web interface (inside /templates/ folder).
 
 README.md — Project overview and instructions.
 
