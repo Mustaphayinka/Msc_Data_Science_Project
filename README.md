@@ -1,6 +1,6 @@
 # Msc_Data_Science_Project
 
-**Socioeconomic Status (SES) Prediction Web Application**
+*Socioeconomic Status (SES) Prediction Web Application*
 
 *Project Overview*
 This project develops an end-to-end machine learning application that predicts an individual’s socioeconomic status (SES) using demographic and employment attributes. The system classifies whether an individual earns above or below $50,000 annually using machine learning models.
