@@ -95,7 +95,8 @@ Here’s a preview of the deployed **Socioeconomic Status Prediction** web appli
 ![Result Page](./SES_App_2.png)
 
 
-**License**
+**License:**
+
 This project is licensed under the MIT License.
 
 
