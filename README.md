@@ -8,7 +8,7 @@ The project implements an end-to-end machine learning application capable of pre
 
 **Project Structure**
 
-app.py — Code for Flask application final_gradient_boosting_model.pkl.gz — Compressed trained model (saved in main project folder).
+app.py — Code for Flask application 
 
 final_gradient_boosting_model.pkl.gz — Compressed trained model (saved in the main project folder).
 
@@ -22,8 +22,8 @@ requirements.txt — Python dependencies list.
 
 1. Clone the Repository
 ```python
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Mustaphayinka/Msc_Data_Science_Project.git
+cd Msc_Data_Science_Project
 ```
 2. Install Required Packages
 ```
@@ -59,31 +59,40 @@ Fully interactive experience from input to prediction.
 
 
 **Live Testing URL**
-Test the deployed application here (for demonstration purposes only):
+The deployed application can be tested here(for demonstration purposes only):
 [https://440c7e70-de25-4082-84c2-2fa901e4a013-00-30eutk3rkk8n7.janeway.replit.dev/]
 
 *Note:*
 This deployment is for academic demonstration only and is ethically compliant (no real user data is collected or stored).
 
 *Key Highlights*
-Dataset: Subset of the Folktables dataset derived from the American Community Survey (ACS).
+Dataset: Part of the Folktables dataset taken from the American Community Survey (ACS).
+Best Model: Gradient Boosting Classifier. 
 
-Final Model: Gradient Boosting Classifier.
+Performance Metrics: 
 
-Performance Metrics:
+Accuracy: 80% 
 
-Accuracy: 80%
+AUC-ROC: 0.88 
 
-AUC-ROC: 0.87
+Deployment Platform: Replit
 
-Deployment Platform: Replit.
+Future Improvements Expand model detail SES attributes.
 
-**Future Improvements**
-Expand the model to cover more detailed SES attributes.
+Improve feature engineering 
 
-Improve feature engineering for even stronger prediction accuracy.
+Upgrade hosting to production environment e.g, AWS, Heroku for scalable use
 
-Upgrade hosting to a production environment (e.g., AWS, Heroku) for scalable use.
+
+Here’s a preview of the deployed **Socioeconomic Status Prediction** web application:
+
+### Homepage
+![Homepage](./SES_App_1.png)
+
+---
+
+### Result Page
+![Result Page](./SES_App_2.png)
 
 
 *License*
